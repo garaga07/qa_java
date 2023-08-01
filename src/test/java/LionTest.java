@@ -13,13 +13,9 @@ import java.util.List;
 public class LionTest {
     @Mock
     private Feline feline;
-    @Test
-    public void lionDifferentSexTest() {
-        try {
-            Lion lion = new Lion("Неопределенный");
-        } catch (AssertionError | Exception e) {
-            Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка", e.getMessage());
-        }
+    @Test(expected = Exception.class)
+    public void lionInvalidSexSexTest() throws Exception {
+        Lion lion = new Lion("Неопределенный");
     }
     @Test
     public void getKittensTest() {
